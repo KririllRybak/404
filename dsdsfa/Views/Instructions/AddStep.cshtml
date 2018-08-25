@@ -1,0 +1,44 @@
+﻿@model dsdsfa.Models.InstructionStep
+
+@{
+    ViewData["Title"] = "Новый Шаг";
+}
+<link href="~/lib/jquery/dist/jquery.js" />
+
+
+<form asp-action="AddStep" asp-controller="Instructions" method="post">
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TitleStep " class="control-label">Название шага</label>
+                <input asp-for="TitleStep" class="form-control" />
+                <span asp-validation-for="TitleStep" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label">В данном шаге необходимо</label>
+                <input asp-for="Text" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            <div>
+                <input type="submit" value="Добавить шаг" class="btn btn-default" />
+            </div>
+
+            <div class="form-group" >
+                <input type="submit" value="Save" class="btn btn-default" asp-action="SaveChanges" method="post" />
+            </div>
+        </div>
+    </div>
+</form>
+       
+
+    
+
+    
+
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
